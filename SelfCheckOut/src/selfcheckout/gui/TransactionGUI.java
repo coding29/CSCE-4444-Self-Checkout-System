@@ -20,8 +20,8 @@ import javax.swing.text.StyledDocument;
  */
 public class TransactionGUI extends javax.swing.JFrame 
 {
-    ProductGUI pg;
     SearchResultGUI sr = new SearchResultGUI(this);
+    ProductGUI pg;
     StyledDocument doc;
     StyledDocument prc;
     String word;
@@ -29,6 +29,16 @@ public class TransactionGUI extends javax.swing.JFrame
     /**
      * Creates new form TransactionGUI
      */
+    
+    public TransactionGUI(SearchResultGUI sr) {
+        initComponents();
+        this.sr = sr;
+        
+        //Changes the background color of the main screen
+        Container content = this.getContentPane();
+        content.setBackground(Color.gray);
+    }
+    
     public TransactionGUI() {
         initComponents();
         
@@ -47,8 +57,7 @@ public class TransactionGUI extends javax.swing.JFrame
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -61,10 +70,14 @@ public class TransactionGUI extends javax.swing.JFrame
         jPanel2 = new javax.swing.JPanel();
         searchTextField = new javax.swing.JTextField();
         searchButton = new javax.swing.JButton();
-        meatButton = new javax.swing.JButton();
+        dairyButton = new javax.swing.JButton();
         frozenButton = new javax.swing.JButton();
-        diaryButton = new javax.swing.JButton();
-        beverageButton = new javax.swing.JButton();
+        produceButton = new javax.swing.JButton();
+        meatButton = new javax.swing.JButton();
+        alcoholtobaccoButton = new javax.swing.JButton();
+        otherButton = new javax.swing.JButton();
+        helpButton = new javax.swing.JButton();
+        payButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
@@ -97,7 +110,7 @@ public class TransactionGUI extends javax.swing.JFrame
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(187, Short.MAX_VALUE)
+                        .addContainerGap(183, Short.MAX_VALUE)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -131,66 +144,87 @@ public class TransactionGUI extends javax.swing.JFrame
         searchButton.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
         searchButton.setText("SEARCH");
 
-        meatButton.setFont(new java.awt.Font("Consolas", 1, 30)); // NOI18N
-        meatButton.setText("MEAT");
-        meatButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                meatButtonActionPerformed(evt);
+        dairyButton.setFont(new java.awt.Font("Consolas", 1, 30)); // NOI18N
+        dairyButton.setText("DAIRY");
+        dairyButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dairyButtonActionPerformed(evt);
             }
         });
 
-        frozenButton.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
-        frozenButton.setText("FROZEN FOODS");
-        frozenButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        frozenButton.setFont(new java.awt.Font("Consolas", 1, 30)); // NOI18N
+        frozenButton.setText("FROZEN");
+        frozenButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 frozenButtonActionPerformed(evt);
             }
         });
 
-        diaryButton.setFont(new java.awt.Font("Consolas", 1, 30)); // NOI18N
-        diaryButton.setText("DAIRY");
-        diaryButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                diaryButtonActionPerformed(evt);
+        produceButton.setFont(new java.awt.Font("Consolas", 1, 30)); // NOI18N
+        produceButton.setText("PRODUCE");
+        produceButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                produceButtonActionPerformed(evt);
             }
         });
 
-        beverageButton.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
-        beverageButton.setText("BEVERAGE");
-        beverageButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
-                beverageButtonActionPerformed(evt);
+        meatButton.setFont(new java.awt.Font("Consolas", 1, 30)); // NOI18N
+        meatButton.setText("MEAT");
+        meatButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                meatButtonActionPerformed(evt);
             }
         });
+
+        alcoholtobaccoButton.setFont(new java.awt.Font("Consolas", 1, 30)); // NOI18N
+        alcoholtobaccoButton.setText("ALCOHOL/TOBACCO");
+        alcoholtobaccoButton.setToolTipText("");
+        alcoholtobaccoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alcoholtobaccoButtonActionPerformed(evt);
+            }
+        });
+
+        otherButton.setFont(new java.awt.Font("Consolas", 1, 30)); // NOI18N
+        otherButton.setText("OTHER");
+        otherButton.setBorder(null);
+
+        helpButton.setFont(new java.awt.Font("Consolas", 1, 30)); // NOI18N
+        helpButton.setText("HELP");
+        helpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                helpButtonActionPerformed(evt);
+            }
+        });
+
+        payButton.setFont(new java.awt.Font("Consolas", 1, 30)); // NOI18N
+        payButton.setText("PAY");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(2, 2, 2)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(searchTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(searchButton, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(diaryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(meatButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(searchButton, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(frozenButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(dairyButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(alcoholtobaccoButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(meatButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(frozenButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(otherButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(produceButton, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(payButton, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(beverageButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                        .addComponent(helpButton, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -199,15 +233,23 @@ public class TransactionGUI extends javax.swing.JFrame
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(searchTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(meatButton, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(diaryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                    .addComponent(produceButton, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(frozenButton, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(beverageButton, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(332, Short.MAX_VALUE))
+                    .addComponent(dairyButton, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(frozenButton, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(alcoholtobaccoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(otherButton, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 177, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(helpButton, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(payButton, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -215,52 +257,59 @@ public class TransactionGUI extends javax.swing.JFrame
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void meatButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_meatButtonActionPerformed
-    {//GEN-HEADEREND:event_meatButtonActionPerformed
+    private void dairyButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_dairyButtonActionPerformed
+    {//GEN-HEADEREND:event_dairyButtonActionPerformed
+        // TODO add your handling code here:
+        pg = new ProductGUI(this, "Dairy");
+        pg.setVisible(true);
+    }//GEN-LAST:event_dairyButtonActionPerformed
+
+    private void frozenButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frozenButtonActionPerformed
+        // TODO add your handling code here:
+        pg = new ProductGUI(this, "Frozen");
+        pg.setVisible(true);
+    }//GEN-LAST:event_frozenButtonActionPerformed
+
+    private void produceButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_produceButtonActionPerformed
+        // TODO add your handling code here:
+        pg = new ProductGUI(this, "Produce");
+        pg.setVisible(true);
+    }//GEN-LAST:event_produceButtonActionPerformed
+
+    private void alcoholtobaccoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alcoholtobaccoButtonActionPerformed
+        // TODO add your handling code here:
+        pg = new ProductGUI(this, "Alcohol/Tobacco");
+        pg.setVisible(true);
+    }//GEN-LAST:event_alcoholtobaccoButtonActionPerformed
+
+    private void meatButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_meatButtonActionPerformed
         // TODO add your handling code here:
         pg = new ProductGUI(this, "Meat");
         pg.setVisible(true);
     }//GEN-LAST:event_meatButtonActionPerformed
 
-    private void frozenButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_frozenButtonActionPerformed
-    {//GEN-HEADEREND:event_frozenButtonActionPerformed
+    private void helpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_helpButtonActionPerformed
         // TODO add your handling code here:
-        pg = new ProductGUI(this, "Frozen Foods");
-        pg.setVisible(true);
-    }//GEN-LAST:event_frozenButtonActionPerformed
 
-    private void diaryButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_diaryButtonActionPerformed
-    {//GEN-HEADEREND:event_diaryButtonActionPerformed
-        // TODO add your handling code here:
-        pg = new ProductGUI(this, "Dairy");
-        pg.setVisible(true);
-    }//GEN-LAST:event_diaryButtonActionPerformed
-
-    private void beverageButtonActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_beverageButtonActionPerformed
-    {//GEN-HEADEREND:event_beverageButtonActionPerformed
-        // TODO add your handling code here:
-        pg = new ProductGUI(this, "Beverage");
-        pg.setVisible(true);
-    }//GEN-LAST:event_beverageButtonActionPerformed
+    }//GEN-LAST:event_helpButtonActionPerformed
 
     //Public method to add items to the cart
     public void AddToItems(String item)
@@ -309,8 +358,8 @@ public class TransactionGUI extends javax.swing.JFrame
             if(word.length() > 0)//only show product page if a search word is entered
             {
                 //sr.searchWord = word;
-                sr.DisplaySearch(word);
                 sr.setVisible(true);
+                sr.DisplaySearch(word);
             }
         }
     };
@@ -350,9 +399,10 @@ public class TransactionGUI extends javax.swing.JFrame
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton beverageButton;
-    private javax.swing.JButton diaryButton;
+    private javax.swing.JButton alcoholtobaccoButton;
+    private javax.swing.JButton dairyButton;
     private javax.swing.JButton frozenButton;
+    private javax.swing.JButton helpButton;
     private javax.swing.JTextPane itemsTextPane;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
@@ -361,7 +411,10 @@ public class TransactionGUI extends javax.swing.JFrame
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JButton meatButton;
+    private javax.swing.JButton otherButton;
+    private javax.swing.JButton payButton;
     private javax.swing.JTextPane priceTextPane;
+    private javax.swing.JButton produceButton;
     private javax.swing.JButton searchButton;
     private javax.swing.JTextField searchTextField;
     private javax.swing.JTextPane totalTextPane;

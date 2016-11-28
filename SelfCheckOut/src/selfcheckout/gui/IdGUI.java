@@ -5,6 +5,14 @@
  */
 package selfcheckout.gui;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JButton;
+import selfcheckout.mysql.MySQLConn;
+
 /**
  *
  * @author Vocany
@@ -12,6 +20,10 @@ package selfcheckout.gui;
 public class IdGUI extends javax.swing.JFrame
 {
     MainPageGUI mp;
+    ManagerGUI man = new ManagerGUI();
+    
+    MySQLConn connect = new MySQLConn();
+    Connection conn = null;
     /**
      * Creates new form IdGUI
      */
@@ -33,8 +45,7 @@ public class IdGUI extends javax.swing.JFrame
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -59,38 +70,86 @@ public class IdGUI extends javax.swing.JFrame
         jLabel1.setFont(new java.awt.Font("Consolas", 1, 36)); // NOI18N
         jLabel1.setText("ENTER YOUR ID");
 
-        idText.setEditable(false);
-
         oneButton.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         oneButton.setText("1");
+        oneButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                oneButtonActionPerformed(evt);
+            }
+        });
 
         twoButton.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         twoButton.setText("2");
+        twoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                twoButtonActionPerformed(evt);
+            }
+        });
 
         threeButton.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         threeButton.setText("3");
+        threeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                threeButtonActionPerformed(evt);
+            }
+        });
 
         fourButton.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         fourButton.setText("4");
+        fourButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fourButtonActionPerformed(evt);
+            }
+        });
 
         fiveButton.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         fiveButton.setText("5");
+        fiveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fiveButtonActionPerformed(evt);
+            }
+        });
 
         sixButton.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         sixButton.setText("6");
+        sixButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sixButtonActionPerformed(evt);
+            }
+        });
 
         sevenButton.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         sevenButton.setText("7");
+        sevenButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sevenButtonActionPerformed(evt);
+            }
+        });
 
         eightButton.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         eightButton.setText("8");
         eightButton.setToolTipText("");
+        eightButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eightButtonActionPerformed(evt);
+            }
+        });
 
         nineButton.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         nineButton.setText("9");
+        nineButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nineButtonActionPerformed(evt);
+            }
+        });
 
         zeroButton.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         zeroButton.setText("0");
+        zeroButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                zeroButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -143,10 +202,8 @@ public class IdGUI extends javax.swing.JFrame
 
         backButton.setFont(new java.awt.Font("Consolas", 1, 20)); // NOI18N
         backButton.setText("BACK");
-        backButton.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButtonActionPerformed(evt);
             }
         });
@@ -156,6 +213,11 @@ public class IdGUI extends javax.swing.JFrame
         enterButton.setMaximumSize(new java.awt.Dimension(77, 33));
         enterButton.setMinimumSize(new java.awt.Dimension(77, 33));
         enterButton.setPreferredSize(new java.awt.Dimension(77, 33));
+        enterButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enterButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -222,6 +284,118 @@ public class IdGUI extends javax.swing.JFrame
         mp.setEnabled(true);
         this.dispose();
     }//GEN-LAST:event_backButtonActionPerformed
+
+    private void enterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterButtonActionPerformed
+        // TODO add your handling code here:
+        String enteredID = idText.getText(); 
+        int checkID = Integer.valueOf(enteredID);
+        String IDnum;
+        
+        if(Integer.valueOf(enteredID) < 100)
+        {
+            try
+            {
+                //Number of rows for the ResultSet
+                int rows = 0;
+                //Connect and open the connection to the database
+                conn = connect.DBUtils();
+
+                //Create the query and result set to get the results
+                String query = "SELECT * FROM SelfCheckOut.Employees";
+                PreparedStatement stmt = conn.prepareStatement(query, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+                //stmt.setString(1, this.product);
+                ResultSet rs = stmt.executeQuery();
+
+                //Find the number of rows
+                if(rs.last())
+                {
+                    rows = rs.getRow();
+                    //Move the cursor to the beginning
+                    rs.beforeFirst();
+                }
+
+                //Create buttons for each product
+                for(int i = 0; i < rows; i++)
+                {
+                    if(rs.next() != false)
+                    {
+                        int num = rs.getInt("ID");
+                        IDnum = Integer.toString(num);
+                        if(IDnum.equals(enteredID))
+                        {
+                            man.setVisible(true);
+                            break;
+                        }
+                    }
+                }
+
+                //Close the connections
+                rs.close();
+                conn.close();
+
+
+            }catch (Exception ex)
+            {
+                Logger.getLogger(ProductGUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+//        else
+//        {
+//            System.out.println("HEELOO");
+//        }
+        
+    }//GEN-LAST:event_enterButtonActionPerformed
+
+    private void zeroButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zeroButtonActionPerformed
+        // TODO add your handling code here:
+        idText.setText(idText.getText() + '0');
+    }//GEN-LAST:event_zeroButtonActionPerformed
+
+    private void oneButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oneButtonActionPerformed
+        // TODO add your handling code here:
+        idText.setText(idText.getText() + '1');
+    }//GEN-LAST:event_oneButtonActionPerformed
+
+    private void twoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_twoButtonActionPerformed
+        // TODO add your handling code here:
+        idText.setText(idText.getText() + '2');
+        
+    }//GEN-LAST:event_twoButtonActionPerformed
+
+    private void threeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_threeButtonActionPerformed
+        // TODO add your handling code here:
+        idText.setText(idText.getText() + '3');
+    }//GEN-LAST:event_threeButtonActionPerformed
+
+    private void fourButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fourButtonActionPerformed
+        // TODO add your handling code here:
+        idText.setText(idText.getText() + '4');
+    }//GEN-LAST:event_fourButtonActionPerformed
+
+    private void fiveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fiveButtonActionPerformed
+        // TODO add your handling code here:
+        idText.setText(idText.getText() + '5');
+    }//GEN-LAST:event_fiveButtonActionPerformed
+
+    private void sixButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sixButtonActionPerformed
+        // TODO add your handling code here:
+        idText.setText(idText.getText() + '6');
+    }//GEN-LAST:event_sixButtonActionPerformed
+
+    private void sevenButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sevenButtonActionPerformed
+        // TODO add your handling code here:
+        idText.setText(idText.getText() + '7');
+    }//GEN-LAST:event_sevenButtonActionPerformed
+
+    private void eightButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eightButtonActionPerformed
+        // TODO add your handling code here:
+        idText.setText(idText.getText() + '8');
+    }//GEN-LAST:event_eightButtonActionPerformed
+
+    private void nineButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nineButtonActionPerformed
+        // TODO add your handling code here:
+        idText.setText(idText.getText() + '9');
+    }//GEN-LAST:event_nineButtonActionPerformed
 
     /**
      * @param args the command line arguments

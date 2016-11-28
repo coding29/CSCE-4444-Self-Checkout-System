@@ -106,9 +106,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="idText">
-          <Properties>
-            <Property name="editable" type="boolean" value="false"/>
-          </Properties>
         </Component>
         <Container class="javax.swing.JPanel" name="jPanel2">
 
@@ -182,6 +179,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="1"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="oneButtonActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="twoButton">
               <Properties>
@@ -190,6 +190,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="2"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="twoButtonActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="threeButton">
               <Properties>
@@ -198,6 +201,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="3"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="threeButtonActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="fourButton">
               <Properties>
@@ -206,6 +212,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="4"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fourButtonActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="fiveButton">
               <Properties>
@@ -214,6 +223,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="5"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fiveButtonActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="sixButton">
               <Properties>
@@ -222,6 +234,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="6"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sixButtonActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="sevenButton">
               <Properties>
@@ -230,6 +245,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="7"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sevenButtonActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="eightButton">
               <Properties>
@@ -239,6 +257,9 @@
                 <Property name="text" type="java.lang.String" value="8"/>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="eightButtonActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="nineButton">
               <Properties>
@@ -247,6 +268,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="9"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nineButtonActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="zeroButton">
               <Properties>
@@ -255,6 +279,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="0"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="zeroButtonActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -285,6 +312,9 @@
               <Dimension value="[77, 33]"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="enterButtonActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
